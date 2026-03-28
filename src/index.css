@@ -1,0 +1,169 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── DARK (default) ──────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --bg-base:     #07090f;
+  --bg-elevated: #0c0f1a;
+  --bg-surface:  #111520;
+  --bg-raised:   #161b2a;
+  --bg-hover:    #1c2235;
+
+  /* Text */
+  --txt-primary:   #eef2f8;
+  --txt-secondary: #6b7fa0;
+  --txt-muted:     #3a4660;
+  --txt-inverse:   #07090f;
+
+  /* Agua — color primario */
+  --agua:       #22d3ee;
+  --agua-dim:   rgba(34,211,238,0.1);
+  --agua-glow:  rgba(34,211,238,0.18);
+  --agua-brd:   rgba(34,211,238,0.22);
+
+  /* Ámbar — acento cálido */
+  --ambar:      #f59e0b;
+  --ambar-dim:  rgba(245,158,11,0.1);
+  --ambar-brd:  rgba(245,158,11,0.22);
+
+  /* Estados */
+  --success:    #10d9a0;
+  --success-dim:rgba(16,217,160,0.1);
+  --success-brd:rgba(16,217,160,0.22);
+  --danger:     #f43f5e;
+  --danger-dim: rgba(244,63,94,0.1);
+  --danger-brd: rgba(244,63,94,0.22);
+  --warn:       #f59e0b;
+  --warn-dim:   rgba(245,158,11,0.1);
+
+  /* Bordes */
+  --brd:        rgba(34,211,238,0.08);
+  --brd-med:    rgba(34,211,238,0.14);
+  --brd-strong: rgba(34,211,238,0.25);
+
+  /* Sombras */
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 24px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,0.6);
+  --glow-agua:  0 0 20px rgba(34,211,238,0.12);
+  --glow-ambar: 0 0 20px rgba(245,158,11,0.12);
+
+  /* Sidebar */
+  --sidebar-bg: #050710;
+  --sidebar-w:  220px;
+}
+
+/* ── LIGHT ───────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg-base:     #f1f5fb;
+  --bg-elevated: #ffffff;
+  --bg-surface:  #ffffff;
+  --bg-raised:   #f8faff;
+  --bg-hover:    #eef3fc;
+
+  --txt-primary:   #0d1424;
+  --txt-secondary: #4a5e80;
+  --txt-muted:     #96aac0;
+  --txt-inverse:   #ffffff;
+
+  --agua:       #0891b2;
+  --agua-dim:   rgba(8,145,178,0.08);
+  --agua-glow:  rgba(8,145,178,0.15);
+  --agua-brd:   rgba(8,145,178,0.2);
+
+  --ambar:      #d97706;
+  --ambar-dim:  rgba(217,119,6,0.08);
+  --ambar-brd:  rgba(217,119,6,0.2);
+
+  --success:    #059669;
+  --success-dim:rgba(5,150,105,0.08);
+  --success-brd:rgba(5,150,105,0.2);
+  --danger:     #e11d48;
+  --danger-dim: rgba(225,29,72,0.08);
+  --danger-brd: rgba(225,29,72,0.2);
+  --warn:       #d97706;
+  --warn-dim:   rgba(217,119,6,0.08);
+
+  --brd:        rgba(8,145,178,0.1);
+  --brd-med:    rgba(8,145,178,0.18);
+  --brd-strong: rgba(8,145,178,0.3);
+
+  --shadow-sm:  0 2px 8px rgba(13,20,36,0.06);
+  --shadow-md:  0 4px 24px rgba(13,20,36,0.09);
+  --shadow-lg:  0 8px 40px rgba(13,20,36,0.12);
+  --glow-agua:  0 0 20px rgba(8,145,178,0.08);
+  --glow-ambar: 0 0 20px rgba(217,119,6,0.08);
+
+  --sidebar-bg: #0a0e1a;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg-base);
+  color: var(--txt-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Textura de fondo: grid muy sutil */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(var(--brd) 1px, transparent 1px),
+    linear-gradient(90deg, var(--brd) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* Orbes de luz ambiente */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 5% 10%,  rgba(34,211,238,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 95% 90%, rgba(245,158,11,0.03) 0%, transparent 60%);
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--agua-brd); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--agua); }
+
+/* ── Animaciones ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-ring {
+  0%, 100% { opacity: .2; transform: scale(1); }
+  50%       { opacity: .5; transform: scale(1.04); }
+}
+@keyframes scan {
+  0%   { transform: translateY(-100%); opacity: .6; }
+  100% { transform: translateY(200%);  opacity: 0; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Sileo encima ────────────────────────────────────────── */
+[data-sileo-toaster] { z-index: 999999 !important; position: fixed !important; }
