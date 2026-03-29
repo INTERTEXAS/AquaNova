@@ -6,16 +6,16 @@ import { dirname } from 'path'
 
 const { Pool } = pkg
 const app  = express()
-const PORT = 3000
+const PORT = 
 
 app.use(cors())
 app.use(express.json())
 
 const pool = new Pool({
-  host: 'localhost', port: 5432,
-  database: 'lavanderia_db',
-  user: 'postgres',
-  password: 'Lagunes98',
+  host: 'localhost', port:,
+  database: '',
+  user: '',
+  password: '',
 })
 
 pool.connect((err, client, release) => {
